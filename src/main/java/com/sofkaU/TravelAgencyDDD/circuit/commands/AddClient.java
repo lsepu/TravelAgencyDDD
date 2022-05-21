@@ -1,4 +1,47 @@
 package com.sofkaU.TravelAgencyDDD.circuit.commands;
 
-public class AddClient {
+import co.com.sofka.domain.generic.Command;
+import com.sofkaU.TravelAgencyDDD.circuit.values.*;
+
+public class AddClient extends Command {
+
+    private final Name name;
+    private final PhoneNumber phoneNumber;
+    private final PassportNumber passportNumber;
+    private final IdentificationCard identificationCard;
+    private final Age age;
+    private final TravelPoints travelPoints;
+
+    public AddClient(Name name, PhoneNumber phoneNumber, PassportNumber passportNumber, IdentificationCard identificationCard, Age age, TravelPoints travelPoints) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.passportNumber = passportNumber;
+        this.identificationCard = identificationCard;
+        this.age = age;
+        this.travelPoints = travelPoints;
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public PhoneNumber getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public PassportNumber getPassportNumber() {
+        return passportNumber;
+    }
+
+    public IdentificationCard getIdentificationCard() {
+        return identificationCard;
+    }
+
+    public Age getAge() {
+        return age;
+    }
+
+    public TravelPoints getTravelPoints() {
+        return travelPoints;
+    }
 }

@@ -1,4 +1,25 @@
 package com.sofkaU.TravelAgencyDDD.circuit.events;
 
-public class DestinationHotelChanged {
+import co.com.sofka.domain.generic.DomainEvent;
+import com.sofkaU.TravelAgencyDDD.circuit.values.DestinationId;
+import com.sofkaU.TravelAgencyDDD.circuit.values.Hotel;
+
+public class DestinationHotelChanged extends DomainEvent {
+
+    private final DestinationId destinationId;
+    private final Hotel hotel;
+
+    public DestinationHotelChanged(DestinationId destinationId, Hotel hotel) {
+        super("com.sofkaU.TravelAgencyDDD.circuit.destinationhotelchanged");
+        this.destinationId = destinationId;
+        this.hotel = hotel;
+    }
+
+    public DestinationId DestinationId() {
+        return destinationId;
+    }
+
+    public Hotel Hotel() {
+        return hotel;
+    }
 }
