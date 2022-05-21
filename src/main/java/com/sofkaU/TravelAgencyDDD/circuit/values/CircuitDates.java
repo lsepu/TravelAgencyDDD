@@ -5,11 +5,11 @@ import co.com.sofka.domain.generic.ValueObject;
 import java.util.Date;
 import java.util.Objects;
 
-public class EndDate implements ValueObject<Date> {
+public class CircuitDates implements ValueObject<Date> {
 
     public final Date value;
 
-    public EndDate(Date value) {
+    public CircuitDates(Date value) {
         this.value = Objects.requireNonNull(value);
         if(!verifyValidDate(value)){
             throw new IllegalArgumentException("The date cannot be before today");
@@ -28,4 +28,16 @@ public class EndDate implements ValueObject<Date> {
         return value;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CircuitDates that = (CircuitDates) o;
+        return Objects.equals(value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
+    }
 }

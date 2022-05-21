@@ -9,15 +9,13 @@ public class AddClient extends Command {
     private final PhoneNumber phoneNumber;
     private final PassportNumber passportNumber;
     private final IdentificationCard identificationCard;
-    private final Age age;
     private final TravelPoints travelPoints;
 
-    public AddClient(Name name, PhoneNumber phoneNumber, PassportNumber passportNumber, IdentificationCard identificationCard, Age age, TravelPoints travelPoints) {
+    public AddClient(Name name, PhoneNumber phoneNumber, PassportNumber passportNumber, IdentificationCard identificationCard, TravelPoints travelPoints) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.passportNumber = passportNumber;
         this.identificationCard = identificationCard;
-        this.age = age;
         this.travelPoints = travelPoints;
     }
 
@@ -37,9 +35,6 @@ public class AddClient extends Command {
         return identificationCard;
     }
 
-    public Age getAge() {
-        return age;
-    }
 
     public TravelPoints getTravelPoints() {
         return travelPoints;

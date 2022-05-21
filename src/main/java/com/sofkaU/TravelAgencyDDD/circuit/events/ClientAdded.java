@@ -9,16 +9,14 @@ public class ClientAdded extends DomainEvent {
     private final PhoneNumber phoneNumber;
     private final PassportNumber passportNumber;
     private final IdentificationCard identificationCard;
-    private final Age age;
     private final TravelPoints travelPoints;
 
-    public ClientAdded(String type, Name name, PhoneNumber phoneNumber, PassportNumber passportNumber, IdentificationCard identificationCard, Age age, TravelPoints travelPoints) {
+    public ClientAdded(String type, Name name, PhoneNumber phoneNumber, PassportNumber passportNumber, IdentificationCard identificationCard, TravelPoints travelPoints) {
         super("com.sofkaU.TravelAgencyDDD.circuit.clientadded");
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.passportNumber = passportNumber;
         this.identificationCard = identificationCard;
-        this.age = age;
         this.travelPoints = travelPoints;
     }
 
@@ -36,10 +34,6 @@ public class ClientAdded extends DomainEvent {
 
     public IdentificationCard IdentificationCard() {
         return identificationCard;
-    }
-
-    public Age Age() {
-        return age;
     }
 
     public TravelPoints TravelPoints() {
