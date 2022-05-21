@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.Command;
 import com.sofkaU.TravelAgencyDDD.circuit.values.DestinationId;
 import com.sofkaU.TravelAgencyDDD.circuit.values.Hotel;
 
-public class ChangeDestinationHotel implements Command {
+public class ChangeDestinationHotel extends Command {
 
     private final DestinationId destinationId;
     private final Hotel hotel;
