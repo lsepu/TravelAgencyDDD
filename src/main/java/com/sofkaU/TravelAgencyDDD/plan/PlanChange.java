@@ -50,6 +50,16 @@ public class PlanChange extends EventChange {
             meal.changeMealOption(event.getOption());
         });
 
+        apply((MealAdded event) -> {
+            plan.meals.add(new Meal(event.getMealId(), event.getMealOption(), event.getIncludeDessert()));
+        });
+
+        apply((TransportTypeChanged event) -> {
+            var transport = plan.getTransportById(event.getTransportId())
+                    .orElseThrow(() -> new IllegalArgumentException("The trasnport was not found"));
+            transport.changeTransportType(event.getTransportType());
+        });
+
 
     }
 }

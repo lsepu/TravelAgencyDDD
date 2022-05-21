@@ -87,12 +87,19 @@ public class Plan extends AggregateEvent<PlanId> {
         appendChange(new MealOptionChanged(mealId, mealOption)).apply();
     }
 
-    public void addMeal(){
+    public void addMeal(MealId mealId, MealOption mealOption, IncludeDessert includeDessert){
+        Objects.requireNonNull(mealId);
+        Objects.requireNonNull(mealOption);
+        Objects.requireNonNull(includeDessert);
 
+        appendChange(new MealAdded(mealId, mealOption, includeDessert));
     }
 
-    public void changeTransportType(){
+    public void changeTransportType(TransportId transportId, TransportType transportType){
+        Objects.requireNonNull(transportId);
+        Objects.requireNonNull(transportType);
 
+        appendChange(new TransportTypeChanged(transportId, transportType));
     }
 
     protected Optional<Activity> getActivityById(ActivityId entityId){
