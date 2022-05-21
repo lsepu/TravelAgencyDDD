@@ -1,4 +1,4 @@
 package com.sofkaU.TravelAgencyDDD.plan.values;
 
-public class Date {
+public class ActivityDate {
 }

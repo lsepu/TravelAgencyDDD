@@ -1,4 +1,6 @@
 package com.sofkaU.TravelAgencyDDD.plan.values;
 
-public class ActivityId {
+import co.com.sofka.domain.generic.Identity;
+
+public class ActivityId extends Identity {
 }
