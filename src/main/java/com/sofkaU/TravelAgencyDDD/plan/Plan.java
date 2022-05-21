@@ -109,4 +109,11 @@ public class Plan extends AggregateEvent<PlanId> {
                 .findFirst();
     }
 
+    protected Optional<Meal> getMealById(MealId entityId){
+        return meals
+                .stream()
+                .filter(meal -> meal.identity().equals(entityId))
+                .findFirst();
+    }
+
 }
