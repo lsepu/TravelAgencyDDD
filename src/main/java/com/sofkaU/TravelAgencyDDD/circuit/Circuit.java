@@ -55,33 +55,34 @@ public class Circuit extends AggregateEvent<CircuitId> {
         Objects.requireNonNull(clientId);
         Objects.requireNonNull(travelPoints);
 
-        appendChange(new ClientTravelPointsAdded(clientId, travelPoints));
+        appendChange(new ClientTravelPointsAdded(clientId, travelPoints)).apply();
     }
 
     public void addPlan(PlanId planId){
         Objects.requireNonNull(planId);
-        this.planIds.add(planId);
+
+        appendChange(new PlanAdded(planId)).apply();
     }
 
     public void changeTouristGuideYearsOfExperience(TouristGuideId touristGuideId, YearsOfExperience yearsOfExperience){
         Objects.requireNonNull(touristGuideId);
         Objects.requireNonNull(yearsOfExperience);
 
-        appendChange(new TouristGuideYearsOfExperienceChanged(touristGuideId, yearsOfExperience));
+        appendChange(new TouristGuideYearsOfExperienceChanged(touristGuideId, yearsOfExperience)).apply();
     }
 
     public void changeDestinationHotel(DestinationId destinationId, Hotel hotel){
         Objects.requireNonNull(destinationId);
         Objects.requireNonNull(hotel);
 
-        appendChange(new DestinationHotelChanged(destinationId, hotel));
+        appendChange(new DestinationHotelChanged(destinationId, hotel)).apply();
     }
 
     public void AddTouristGuideDestinationExperience(TouristGuideId touristGuideId, DestinationExperience destinationExperience){
         Objects.requireNonNull(touristGuideId);
         Objects.requireNonNull(destinationExperience);
 
-        appendChange(new TouristGuideDestinationExperienceAdded(touristGuideId, destinationExperience));
+        appendChange(new TouristGuideDestinationExperienceAdded(touristGuideId, destinationExperience)).apply();
     }
 
     protected Optional<Client> getClientById(ClientId entityId){

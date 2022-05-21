@@ -2,8 +2,7 @@ package com.sofkaU.TravelAgencyDDD.plan;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.sofkaU.TravelAgencyDDD.plan.events.ActivityAdded;
-import com.sofkaU.TravelAgencyDDD.plan.events.PlanAdded;
+import com.sofkaU.TravelAgencyDDD.plan.events.*;
 import com.sofkaU.TravelAgencyDDD.plan.values.*;
 
 import java.util.List;
@@ -46,32 +45,46 @@ public class Plan extends AggregateEvent<PlanId> {
         appendChange(new ActivityAdded(activityId, time, address, duration)).apply();
     }
 
-    public void addMealDessert(){
+    public void addMealDessert(MealId mealId){
+        Objects.requireNonNull(mealId);
 
+        appendChange(new MealDessertAdded(mealId)).apply();
     }
 
-    public void addPlan(){
 
+    public void addTransport(TransportId transportId, TransportType transportType,  NumberOfPassengers numberOfPassengers){
+        Objects.requireNonNull(transportId);
+        Objects.requireNonNull(transportType);
+        Objects.requireNonNull(numberOfPassengers);
+
+        appendChange(new TransportAdded(transportId, transportType, numberOfPassengers)).apply();
     }
 
-    public void addTransport(){
+    public void changeActivityDuration(ActivityId activityId, Duration duration){
+        Objects.requireNonNull(activityId);
+        Objects.requireNonNull(duration);
 
+        appendChange(new ActivityDurationChanged(activityId, duration)).apply();
     }
 
-    public void changeActivityDuration(){
+    public void changeActivityTime(ActivityId activityId, Time time){
+        Objects.requireNonNull(activityId);
+        Objects.requireNonNull(time);
 
+        appendChange(new ActivityTimeChanged(activityId, time)).apply();
     }
 
-    public void changeActivityTime(){
+    public void changeDate(PlanDate planDate){
+        Objects.requireNonNull(planDate);
 
+        appendChange(new DateChanged(planDate)).apply();
     }
 
-    public void changeDate(){
+    public void changeMealOption(MealId mealId, MealOption mealOption){
+        Objects.requireNonNull(mealId);
+        Objects.requireNonNull(mealOption);
 
-    }
-
-    public void changeMealOption(){
-
+        appendChange(new MealOptionChanged(mealId, mealOption)).apply();
     }
 
     public void addMeal(){

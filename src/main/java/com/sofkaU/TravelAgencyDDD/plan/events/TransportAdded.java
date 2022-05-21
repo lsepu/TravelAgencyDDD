@@ -9,10 +9,10 @@ public class TransportAdded extends DomainEvent {
     private final TransportType transportType;
     private final NumberOfPassengers numberOfPassengers;
 
-    public TransportAdded(String type, TransportId transportId, TransportType transportType1,  NumberOfPassengers numberOfPassengers) {
+    public TransportAdded(TransportId transportId, TransportType transportType,  NumberOfPassengers numberOfPassengers) {
         super("com.sofkaU.TravelAgencyDDD.plan.transportadded");
         this.transportId = transportId;
-        this.transportType = transportType1;
+        this.transportType = transportType;
         this.numberOfPassengers = numberOfPassengers;
     }
 
