@@ -1,4 +1,4 @@
 package com.sofkaU.TravelAgencyDDD.plan.values;
 
-public class Option {
+public class TransportType {
 }

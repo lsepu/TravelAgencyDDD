@@ -2,23 +2,23 @@ package com.sofkaU.TravelAgencyDDD.plan.commands;
 
 import co.com.sofka.domain.generic.Command;
 import com.sofkaU.TravelAgencyDDD.plan.values.MealId;
-import com.sofkaU.TravelAgencyDDD.plan.values.Option;
+import com.sofkaU.TravelAgencyDDD.plan.values.MealOption;
 
 public class ChangeMealOption extends Command {
 
     private final MealId mealId;
-    private final Option option;
+    private final MealOption option;
 
-    public ChangeMealOption(MealId mealId, Option option) {
+    public ChangeMealOption(MealId mealId, MealOption mealOption) {
         this.mealId = mealId;
-        this.option = option;
+        this.option = mealOption;
     }
 
     public MealId getMealId() {
         return mealId;
     }
 
-    public Option getOption() {
+    public MealOption getOption() {
         return option;
     }
 }
