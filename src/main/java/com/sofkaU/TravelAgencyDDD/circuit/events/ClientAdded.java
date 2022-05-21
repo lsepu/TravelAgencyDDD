@@ -5,14 +5,17 @@ import com.sofkaU.TravelAgencyDDD.circuit.values.*;
 
 public class ClientAdded extends DomainEvent {
 
+    private final ClientId clientId;
     private final Name name;
     private final PhoneNumber phoneNumber;
     private final PassportNumber passportNumber;
     private final IdentificationCard identificationCard;
     private final TravelPoints travelPoints;
 
-    public ClientAdded(String type, Name name, PhoneNumber phoneNumber, PassportNumber passportNumber, IdentificationCard identificationCard, TravelPoints travelPoints) {
+    public ClientAdded(ClientId clientId, Name name, PhoneNumber phoneNumber,
+                       PassportNumber passportNumber, IdentificationCard identificationCard, TravelPoints travelPoints) {
         super("com.sofkaU.TravelAgencyDDD.circuit.clientadded");
+        this.clientId = clientId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.passportNumber = passportNumber;
@@ -20,23 +23,28 @@ public class ClientAdded extends DomainEvent {
         this.travelPoints = travelPoints;
     }
 
-    public Name Name() {
+
+    public ClientId getClientId() {
+        return clientId;
+    }
+
+    public Name getName() {
         return name;
     }
 
-    public PhoneNumber PhoneNumber() {
+    public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
 
-    public PassportNumber PassportNumber() {
+    public PassportNumber getPassportNumber() {
         return passportNumber;
     }
 
-    public IdentificationCard IdentificationCard() {
+    public IdentificationCard getIdentificationCard() {
         return identificationCard;
     }
 
-    public TravelPoints TravelPoints() {
+    public TravelPoints getTravelPoints() {
         return travelPoints;
     }
 }

@@ -9,17 +9,17 @@ public class ClientTravelPointsAdded extends DomainEvent {
     private final ClientId clientId;
     private final TravelPoints travelPoints;
 
-    public ClientTravelPointsAdded(String type, ClientId clientId, TravelPoints travelPoints) {
+    public ClientTravelPointsAdded(ClientId clientId, TravelPoints travelPoints) {
         super("com.sofkaU.TravelAgencyDDD.circuit.clienttravelpointsadded");
         this.clientId = clientId;
         this.travelPoints = travelPoints;
     }
 
-    public ClientId ClientId() {
+    public ClientId getClientId() {
         return clientId;
     }
 
-    public TravelPoints TravelPoints() {
+    public TravelPoints getTravelPoints() {
         return travelPoints;
     }
 }

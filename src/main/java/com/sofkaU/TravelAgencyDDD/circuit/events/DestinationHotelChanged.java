@@ -15,11 +15,11 @@ public class DestinationHotelChanged extends DomainEvent {
         this.hotel = hotel;
     }
 
-    public DestinationId DestinationId() {
+    public DestinationId getDestinationId() {
         return destinationId;
     }
 
-    public Hotel Hotel() {
+    public Hotel getHotel() {
         return hotel;
     }
 }

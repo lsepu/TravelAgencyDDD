@@ -15,11 +15,11 @@ public class TouristGuideYearsOfExperienceChanged extends DomainEvent {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public TouristGuideId TouristGuideId() {
+    public TouristGuideId getTouristGuideId() {
         return touristGuideId;
     }
 
-    public YearsOfExperience YearsOfExperience() {
+    public YearsOfExperience getYearsOfExperience() {
         return yearsOfExperience;
     }
 }

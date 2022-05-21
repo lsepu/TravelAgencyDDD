@@ -12,7 +12,7 @@ public class PlanAdded extends DomainEvent {
         this.planId = planId;
     }
 
-    public PlanId PlanId() {
+    public PlanId getPlanId() {
         return planId;
     }
 }

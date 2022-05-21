@@ -30,20 +30,20 @@ public class Client extends Entity<ClientId> {
         return name;
     }
 
-    public PhoneNumber getPhoneNumber() {
+    public PhoneNumber PhoneNumber() {
         return phoneNumber;
     }
 
-    public PassportNumber getPassportNumber() {
+    public PassportNumber PassportNumber() {
         return passportNumber;
     }
 
-    public IdentificationCard getIdentificationCard() {
+    public IdentificationCard IdentificationCard() {
         return identificationCard;
     }
 
 
-    public TravelPoints getTravelPoints() {
+    public TravelPoints TravelPoints() {
         return travelPoints;
     }
 }

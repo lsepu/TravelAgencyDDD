@@ -22,19 +22,19 @@ public class Destination extends Entity<DestinationId> {
         this.hotel = hotel;
     }
 
-    public Hotel getHotel() {
+    public Hotel Hotel() {
         return hotel;
     }
 
-    public Weather getWeather() {
+    public Weather Weather() {
         return weather;
     }
 
-    public City getCity() {
+    public City City() {
         return city;
     }
 
-    public Country getCountry() {
+    public Country Country() {
         return country;
     }
 }

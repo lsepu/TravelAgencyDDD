@@ -29,19 +29,19 @@ public class TouristGuide extends Entity<TouristGuideId> {
         this.destinationsExperience.add(destinationExperience);
     }
 
-    public YearsOfExperience getYearsOfExperience() {
+    public YearsOfExperience YearsOfExperience() {
         return yearsOfExperience;
     }
 
-    public Name getName() {
+    public Name Name() {
         return name;
     }
 
-    public PhoneNumber getPhoneNumber() {
+    public PhoneNumber PhoneNumber() {
         return phoneNumber;
     }
 
-    public Set<DestinationExperience> getDestinationsExperience() {
+    public Set<DestinationExperience> DestinationsExperience() {
         return destinationsExperience;
     }
 }

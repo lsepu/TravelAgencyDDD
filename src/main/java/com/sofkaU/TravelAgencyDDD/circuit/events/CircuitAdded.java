@@ -1,11 +1,12 @@
 package com.sofkaU.TravelAgencyDDD.circuit.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
+import com.sofkaU.TravelAgencyDDD.circuit.Destination;
 import com.sofkaU.TravelAgencyDDD.circuit.TouristGuide;
 import com.sofkaU.TravelAgencyDDD.circuit.values.CircuitDates;
 import com.sofkaU.TravelAgencyDDD.circuit.values.Price;
 
-import javax.print.attribute.standard.Destination;
+
 
 public class CircuitAdded extends DomainEvent {
 
@@ -22,19 +23,19 @@ public class CircuitAdded extends DomainEvent {
         this.price = price;
     }
 
-    public Destination Destination() {
+    public Destination getDestination() {
         return destination;
     }
 
-    public TouristGuide TouristGuide() {
+    public TouristGuide getTouristGuide() {
         return touristGuide;
     }
 
-    public CircuitDates BeginningDate() {
+    public CircuitDates getBeginningDate() {
         return circuitDates;
     }
 
-    public Price Price() {
+    public Price getPrice() {
         return price;
     }
 }
