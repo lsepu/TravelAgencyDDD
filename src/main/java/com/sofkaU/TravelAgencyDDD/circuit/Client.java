@@ -12,7 +12,8 @@ public class Client extends Entity<ClientId> {
 
     private TravelPoints travelPoints;
 
-    public Client(ClientId entityId, Name name, PhoneNumber phoneNumber, PassportNumber passportNumber, IdentificationCard identificationCard, TravelPoints travelPoints) {
+    public Client(ClientId entityId, Name name, PhoneNumber phoneNumber, PassportNumber passportNumber,
+                  IdentificationCard identificationCard, TravelPoints travelPoints) {
         super(entityId);
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -41,7 +42,6 @@ public class Client extends Entity<ClientId> {
     public IdentificationCard IdentificationCard() {
         return identificationCard;
     }
-
 
     public TravelPoints TravelPoints() {
         return travelPoints;

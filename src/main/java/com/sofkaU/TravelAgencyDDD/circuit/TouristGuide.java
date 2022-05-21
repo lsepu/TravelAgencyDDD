@@ -21,11 +21,11 @@ public class TouristGuide extends Entity<TouristGuideId> {
         this.destinationsExperience = destinationsExperience;
     }
 
-    public void ChangeYearsOfExperience(YearsOfExperience yearsOfExperience){
+    public void changeYearsOfExperience(YearsOfExperience yearsOfExperience){
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public void AddDestinationExperience(DestinationExperience destinationExperience){
+    public void addDestinationExperience(DestinationExperience destinationExperience){
         this.destinationsExperience.add(destinationExperience);
     }
 

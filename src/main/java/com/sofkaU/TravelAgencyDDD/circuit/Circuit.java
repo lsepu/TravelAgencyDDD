@@ -8,6 +8,7 @@ import com.sofkaU.TravelAgencyDDD.plan.values.PlanId;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Circuit extends AggregateEvent<CircuitId> {
@@ -81,6 +82,13 @@ public class Circuit extends AggregateEvent<CircuitId> {
         Objects.requireNonNull(destinationExperience);
 
         appendChange(new TouristGuideDestinationExperienceAdded(touristGuideId, destinationExperience));
+    }
+
+    protected Optional<Client> getClientById(ClientId entityId){
+        return clients
+                .stream()
+                .filter(client -> client.identity().equals(entityId))
+                .findFirst();
     }
 
 

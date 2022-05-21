@@ -31,7 +31,7 @@ public class CircuitAdded extends DomainEvent {
         return touristGuide;
     }
 
-    public CircuitDates getBeginningDate() {
+    public CircuitDates getCircuitDates() {
         return circuitDates;
     }
 
