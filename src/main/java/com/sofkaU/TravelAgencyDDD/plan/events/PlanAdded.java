@@ -16,7 +16,7 @@ public class PlanAdded extends DomainEvent {
     private final Set<Transport> transports;
     private final PlanDate planDate;
 
-    public PlanAdded(String type,  Set<Meal> meals, Set<Activity> activities, Set<Transport> transports, PlanDate planDate) {
+    public PlanAdded(Set<Meal> meals, Set<Activity> activities, Set<Transport> transports, PlanDate planDate) {
         super("com.sofkaU.TravelAgencyDDD.plan.planadded");
         this.meals = meals;
         this.activities = activities;

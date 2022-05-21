@@ -3,9 +3,10 @@ package com.sofkaU.TravelAgencyDDD.plan.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.sofkaU.TravelAgencyDDD.plan.values.ActivityId;
 import com.sofkaU.TravelAgencyDDD.plan.values.Address;
+import com.sofkaU.TravelAgencyDDD.plan.values.Duration;
 import com.sofkaU.TravelAgencyDDD.plan.values.Time;
 
-import java.time.Duration;
+
 
 public class ActivityAdded extends DomainEvent {
 

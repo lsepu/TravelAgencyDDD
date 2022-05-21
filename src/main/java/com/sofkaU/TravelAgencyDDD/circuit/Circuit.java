@@ -31,8 +31,8 @@ public class Circuit extends AggregateEvent<CircuitId> {
         subscribe(new CircuitChange(this));
     }
 
-    public static Circuit from (CircuitId sectionId, List<DomainEvent> events){
-        var circuit = new Circuit(sectionId);
+    public static Circuit from (CircuitId entityId, List<DomainEvent> events){
+        var circuit = new Circuit(entityId);
         events.forEach(circuit::applyEvent);
         return circuit;
     }
