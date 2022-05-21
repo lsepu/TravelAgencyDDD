@@ -7,13 +7,13 @@ public class TransportAdded extends DomainEvent {
 
     private final TransportId transportId;
     private final TransportType transportType;
-    private final MaxNumberOfPassengers maxNumberOfPassengers;
+    private final NumberOfPassengers numberOfPassengers;
 
-    public TransportAdded(String type, TransportId transportId, TransportType transportType1,  MaxNumberOfPassengers maxNumberOfPassengers) {
+    public TransportAdded(String type, TransportId transportId, TransportType transportType1,  NumberOfPassengers numberOfPassengers) {
         super("com.sofkaU.TravelAgencyDDD.plan.transportadded");
         this.transportId = transportId;
         this.transportType = transportType1;
-        this.maxNumberOfPassengers = maxNumberOfPassengers;
+        this.numberOfPassengers = numberOfPassengers;
     }
 
     public TransportId TransportId() {
@@ -24,8 +24,8 @@ public class TransportAdded extends DomainEvent {
         return transportType;
     }
 
-    public MaxNumberOfPassengers MaxNumberOfPassengers() {
-        return maxNumberOfPassengers;
+    public NumberOfPassengers MaxNumberOfPassengers() {
+        return numberOfPassengers;
     }
 
 

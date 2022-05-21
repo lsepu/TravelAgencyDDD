@@ -1,19 +1,23 @@
 package com.sofkaU.TravelAgencyDDD.plan;
 
 import co.com.sofka.domain.generic.Entity;
-import com.sofkaU.TravelAgencyDDD.plan.values.MaxNumberOfPassengers;
+import com.sofkaU.TravelAgencyDDD.plan.values.NumberOfPassengers;
 import com.sofkaU.TravelAgencyDDD.plan.values.TransportId;
 import com.sofkaU.TravelAgencyDDD.plan.values.TransportType;
 
 public class Transport extends Entity<TransportId> {
 
     private TransportType transportType;
-    private MaxNumberOfPassengers maxNumberOfPassengers;
+    private NumberOfPassengers numberOfPassengers;
 
-    public Transport(TransportId entityId, TransportType transportType, MaxNumberOfPassengers maxNumberOfPassengers) {
+    public Transport(TransportId entityId, TransportType transportType, NumberOfPassengers numberOfPassengers) {
         super(entityId);
         this.transportType = transportType;
-        this.maxNumberOfPassengers = maxNumberOfPassengers;
+        this.numberOfPassengers = numberOfPassengers;
+    }
+
+    public void changeTransportType( TransportType transportType){
+        this.transportType = transportType;
     }
 
     public TransportType getTransportType() {
@@ -21,7 +25,7 @@ public class Transport extends Entity<TransportId> {
     }
 
 
-    public MaxNumberOfPassengers getMaxNumberOfPassengers() {
-        return maxNumberOfPassengers;
+    public NumberOfPassengers getMaxNumberOfPassengers() {
+        return numberOfPassengers;
     }
 }

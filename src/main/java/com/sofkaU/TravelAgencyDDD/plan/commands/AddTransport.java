@@ -7,12 +7,12 @@ public class AddTransport extends Command {
 
     private final TransportId transportId;
     private final TransportType transportType;
-    private final MaxNumberOfPassengers maxNumberOfPassengers;
+    private final NumberOfPassengers numberOfPassengers;
 
-    public AddTransport(TransportId transportId, TransportType transportType, MaxNumberOfPassengers maxNumberOfPassengers) {
+    public AddTransport(TransportId transportId, TransportType transportType, NumberOfPassengers numberOfPassengers) {
         this.transportId = transportId;
         this.transportType = transportType;
-        this.maxNumberOfPassengers = maxNumberOfPassengers;
+        this.numberOfPassengers = numberOfPassengers;
     }
 
     public TransportId getTransportId() {
@@ -23,8 +23,8 @@ public class AddTransport extends Command {
         return transportType;
     }
 
-    public MaxNumberOfPassengers getMaxNumberOfPassengers() {
-        return maxNumberOfPassengers;
+    public NumberOfPassengers getMaxNumberOfPassengers() {
+        return numberOfPassengers;
     }
 
 }
