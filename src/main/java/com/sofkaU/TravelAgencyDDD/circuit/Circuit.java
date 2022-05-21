@@ -20,9 +20,9 @@ public class Circuit extends AggregateEvent<CircuitId> {
     protected CircuitDates circuitDates;
     protected Price price;
 
-    public Circuit(CircuitId entityId, Destination destination, CircuitDates circuitDates, Price price, TouristGuide touristGuide) {
+    public Circuit(CircuitId entityId, Destination destination, CircuitDates circuitDates, Price price) {
         super(entityId);
-        appendChange(new CircuitAdded(destination, touristGuide, circuitDates, price));
+        appendChange(new CircuitCreated(destination, circuitDates, price));
         subscribe(new CircuitChange(this));
     }
 

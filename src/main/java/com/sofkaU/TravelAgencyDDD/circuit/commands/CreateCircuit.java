@@ -1,38 +1,37 @@
-package com.sofkaU.TravelAgencyDDD.circuit.events;
+package com.sofkaU.TravelAgencyDDD.circuit.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import com.sofkaU.TravelAgencyDDD.circuit.Destination;
 import com.sofkaU.TravelAgencyDDD.circuit.TouristGuide;
 import com.sofkaU.TravelAgencyDDD.circuit.values.CircuitDates;
+import com.sofkaU.TravelAgencyDDD.circuit.values.CircuitId;
 import com.sofkaU.TravelAgencyDDD.circuit.values.Price;
 
 
+public class CreateCircuit extends Command {
 
-public class CircuitAdded extends DomainEvent {
-
+    private final CircuitId circuitId;
     private final Destination destination;
-    private final TouristGuide touristGuide;
     private final CircuitDates circuitDates;
     private final Price price;
 
-    public CircuitAdded(Destination destination, TouristGuide touristGuide, CircuitDates circuitDates, Price price) {
-        super("com.sofkaU.TravelAgencyDDD.circuit.circuitadded");
+    public CreateCircuit(CircuitId circuitId, Destination destination, CircuitDates circuitDates, Price price) {
+        this.circuitId = circuitId;
         this.destination = destination;
-        this.touristGuide = touristGuide;
         this.circuitDates = circuitDates;
         this.price = price;
     }
 
-    public Destination getDestination() {
-        return destination;
-    }
-
-    public TouristGuide getTouristGuide() {
-        return touristGuide;
+    public CircuitId getCircuitId() {
+        return circuitId;
     }
 
     public CircuitDates getCircuitDates() {
         return circuitDates;
+    }
+
+    public Destination getDestination() {
+        return destination;
     }
 
     public Price getPrice() {

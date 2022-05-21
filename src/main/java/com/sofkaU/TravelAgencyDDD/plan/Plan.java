@@ -20,7 +20,7 @@ public class Plan extends AggregateEvent<PlanId> {
 
     public Plan(PlanId entityId, Set<Meal> meals, Set<Activity> activities, Set<Transport> transports, PlanDate planDate) {
         super(entityId);
-        appendChange(new PlanAdded(meals, activities, transports, planDate));
+        appendChange(new PlanCreated(meals, activities, transports, planDate));
         subscribe(new PlanChange(this));
     }
 
@@ -50,7 +50,6 @@ public class Plan extends AggregateEvent<PlanId> {
 
         appendChange(new MealDessertAdded(mealId)).apply();
     }
-
 
     public void addTransport(TransportId transportId, TransportType transportType,  NumberOfPassengers numberOfPassengers){
         Objects.requireNonNull(transportId);

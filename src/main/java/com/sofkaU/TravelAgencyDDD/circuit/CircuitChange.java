@@ -8,8 +8,7 @@ import java.util.HashSet;
 public class CircuitChange extends EventChange {
     public CircuitChange(Circuit circuit){
 
-        apply((CircuitAdded event) -> {
-            circuit.touristGuide = event.getTouristGuide();
+        apply((CircuitCreated event) -> {
             circuit.destination = event.getDestination();
             circuit.circuitDates = event.getCircuitDates();
             circuit.price = event.getPrice();

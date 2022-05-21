@@ -7,7 +7,7 @@ public class PlanChange extends EventChange {
 
     public PlanChange(Plan plan){
 
-        apply((PlanAdded event) -> {
+        apply((PlanCreated event) -> {
             plan.meals = event.getMeals();
             plan.activities = event.getActivities();
             plan.transports = event.getTransports();
