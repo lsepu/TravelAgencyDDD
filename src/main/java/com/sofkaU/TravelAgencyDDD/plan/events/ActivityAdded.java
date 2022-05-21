@@ -22,19 +22,19 @@ public class ActivityAdded extends DomainEvent {
         this.duration = duration;
     }
 
-    public ActivityId ActivityId() {
+    public ActivityId getActivityId() {
         return activityId;
     }
 
-    public Time Time() {
+    public Time getTime() {
         return time;
     }
 
-    public Address Address() {
+    public Address getAddress() {
         return address;
     }
 
-    public Duration Duration() {
+    public Duration getDuration() {
         return duration;
     }
 }

@@ -15,11 +15,11 @@ public class ActivityTimeChanged extends DomainEvent {
         this.time = time;
     }
 
-    public ActivityId ActivityId() {
+    public ActivityId getActivityId() {
         return activityId;
     }
 
-    public Time Time() {
+    public Time getTime() {
         return time;
     }
 }

@@ -11,38 +11,32 @@ import java.util.Set;
 
 public class PlanAdded extends DomainEvent {
 
-    private final PlanId planId;
     private final Set<Meal> meals;
     private final Set<Activity> activities;
     private final Set<Transport> transports;
     private final PlanDate planDate;
 
-    public PlanAdded(String type, PlanId planId, Set<Meal> meals, Set<Activity> activities, Set<Transport> transports, PlanDate planDate) {
+    public PlanAdded(String type,  Set<Meal> meals, Set<Activity> activities, Set<Transport> transports, PlanDate planDate) {
         super("com.sofkaU.TravelAgencyDDD.plan.planadded");
-        this.planId = planId;
         this.meals = meals;
         this.activities = activities;
         this.transports = transports;
         this.planDate = planDate;
     }
 
-    public PlanId PlanId() {
-        return planId;
-    }
-
-    public Set<Meal> Meals() {
+    public Set<Meal> getMeals() {
         return meals;
     }
 
-    public Set<Activity> Activities() {
+    public Set<Activity> getActivities() {
         return activities;
     }
 
-    public Set<Transport> Transports() {
+    public Set<Transport> getTransports() {
         return transports;
     }
 
-    public PlanDate PlanDate() {
+    public PlanDate getPlanDate() {
         return planDate;
     }
 }

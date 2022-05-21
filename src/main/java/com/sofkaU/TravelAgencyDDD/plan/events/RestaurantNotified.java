@@ -15,11 +15,12 @@ public class RestaurantNotified extends DomainEvent {
         this.option = option;
     }
 
-    public MealId MealId() {
+
+    public MealId getMealId() {
         return mealId;
     }
 
-    public MealOption Option() {
+    public MealOption getOption() {
         return option;
     }
 }

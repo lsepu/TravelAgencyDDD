@@ -25,11 +25,11 @@ public class Meal extends Entity<MealId> {
         this.mealOption = mealOption;
     }
 
-    public MealOption getMealOption() {
+    public MealOption MealOption() {
         return mealOption;
     }
 
-    public IncludeDessert getIncludeDessert() {
+    public IncludeDessert IncludeDessert() {
         return includeDessert;
     }
 }

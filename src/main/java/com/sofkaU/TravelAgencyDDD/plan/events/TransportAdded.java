@@ -16,17 +16,15 @@ public class TransportAdded extends DomainEvent {
         this.numberOfPassengers = numberOfPassengers;
     }
 
-    public TransportId TransportId() {
+    public TransportId getTransportId() {
         return transportId;
     }
 
-    public TransportType Type() {
+    public TransportType getTransportType() {
         return transportType;
     }
 
-    public NumberOfPassengers MaxNumberOfPassengers() {
+    public NumberOfPassengers getNumberOfPassengers() {
         return numberOfPassengers;
     }
-
-
 }

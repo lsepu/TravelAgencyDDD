@@ -20,12 +20,12 @@ public class Transport extends Entity<TransportId> {
         this.transportType = transportType;
     }
 
-    public TransportType getTransportType() {
+    public TransportType TransportType() {
         return transportType;
     }
 
 
-    public NumberOfPassengers getMaxNumberOfPassengers() {
+    public NumberOfPassengers MaxNumberOfPassengers() {
         return numberOfPassengers;
     }
 }

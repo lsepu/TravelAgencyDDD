@@ -27,15 +27,15 @@ public class Activity extends Entity<ActivityId> {
         this.duration = duration;
     }
 
-    public Time getTime() {
+    public Time Time() {
         return time;
     }
 
-    public Address getAddress() {
+    public Address Address() {
         return address;
     }
 
-    public Duration getDuration() {
+    public Duration Duration() {
         return duration;
     }
 }

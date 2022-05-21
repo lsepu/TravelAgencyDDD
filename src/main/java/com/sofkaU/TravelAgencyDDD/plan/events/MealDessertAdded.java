@@ -12,7 +12,7 @@ public class MealDessertAdded extends DomainEvent {
         this.mealId = mealId;
     }
 
-    public MealId MealId() {
+    public MealId getMealId() {
         return mealId;
     }
 }

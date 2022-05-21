@@ -12,7 +12,7 @@ public class DateChanged extends DomainEvent {
         this.planDate = planDate;
     }
 
-    public PlanDate PlanDate() {
+    public PlanDate getPlanDate() {
         return planDate;
     }
 }
