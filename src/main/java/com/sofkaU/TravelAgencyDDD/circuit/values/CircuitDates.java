@@ -4,16 +4,29 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.Properties;
 
-public class CircuitDates implements ValueObject<Date> {
+public class CircuitDates implements ValueObject<Properties> {
 
-    public final Date value;
+    private final Date beginningDate;
+    private final Date endDate;
 
-    public CircuitDates(Date value) {
-        this.value = Objects.requireNonNull(value);
-        if(!verifyValidDate(value)){
-            throw new IllegalArgumentException("The date cannot be before today");
+    public CircuitDates(Date beginningDate, Date endDate) {
+        this.beginningDate = Objects.requireNonNull(beginningDate);
+        this.endDate = Objects.requireNonNull(endDate);
+
+        if(!verifyValidDate(beginningDate)){
+            throw new IllegalArgumentException("The beginning date cannot be before today");
         }
+
+        if(!verifyValidDate(endDate)){
+            throw new IllegalArgumentException("The end date cannot be before today");
+        }
+
+        if(endDate.before(beginningDate)){
+            throw new IllegalArgumentException("the end date can't be before the beginning date");
+        }
+
     }
 
     public boolean verifyValidDate(Date date){
@@ -24,8 +37,18 @@ public class CircuitDates implements ValueObject<Date> {
         return true;
     }
 
-    public Date value() {
-        return value;
+    @Override
+    public Properties value() {
+        return new Properties() {
+
+            public Date beginningDate() {
+                return beginningDate;
+            }
+
+            public Date endDate() {
+                return endDate;
+            }
+        };
     }
 
     @Override
@@ -33,11 +56,11 @@ public class CircuitDates implements ValueObject<Date> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CircuitDates that = (CircuitDates) o;
-        return Objects.equals(value, that.value);
+        return Objects.equals(beginningDate, that.beginningDate) && Objects.equals(endDate, that.endDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value);
+        return Objects.hash(beginningDate, endDate);
     }
 }
