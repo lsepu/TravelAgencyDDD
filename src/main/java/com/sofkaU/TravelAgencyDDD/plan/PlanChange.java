@@ -42,7 +42,7 @@ public class PlanChange extends EventChange {
             activity.changeTime(event.getTime());
         });
 
-        apply((DateChanged event) -> {
+        apply((PlanDateChanged event) -> {
             plan.planDate = event.getPlanDate();
         });
 

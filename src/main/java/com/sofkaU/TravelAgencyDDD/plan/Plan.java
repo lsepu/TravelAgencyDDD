@@ -76,7 +76,7 @@ public class Plan extends AggregateEvent<PlanId> {
     public void changeDate(PlanDate planDate){
         Objects.requireNonNull(planDate);
 
-        appendChange(new DateChanged(planDate)).apply();
+        appendChange(new PlanDateChanged(planDate)).apply();
     }
 
     public void changeMealOption(MealId mealId, MealOption mealOption){
