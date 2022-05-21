@@ -5,26 +5,29 @@ import com.sofkaU.TravelAgencyDDD.plan.values.*;
 
 public class AddTransport extends Command {
 
+    private final PlanId planId;
     private final TransportId transportId;
     private final TransportType transportType;
     private final NumberOfPassengers numberOfPassengers;
 
-    public AddTransport(TransportId transportId, TransportType transportType, NumberOfPassengers numberOfPassengers) {
+    public AddTransport(PlanId planId, TransportId transportId, TransportType transportType, NumberOfPassengers numberOfPassengers) {
+        this.planId = planId;
         this.transportId = transportId;
         this.transportType = transportType;
         this.numberOfPassengers = numberOfPassengers;
     }
 
-    public TransportId getTransportId() {
-        return transportId;
+    public PlanId getPlanId() {
+        return planId;
     }
 
-    public TransportType getType() {
+    public TransportType getTransportType() {
         return transportType;
     }
 
-    public NumberOfPassengers getMaxNumberOfPassengers() {
+    public NumberOfPassengers getNumberOfPassengers() {
         return numberOfPassengers;
     }
+
 
 }

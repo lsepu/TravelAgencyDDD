@@ -5,6 +5,7 @@ import com.sofkaU.TravelAgencyDDD.circuit.values.*;
 
 public class AddClient extends Command {
 
+    private final CircuitId circuitId;
     private final ClientId clientId;
     private final Name name;
     private final PhoneNumber phoneNumber;
@@ -12,9 +13,10 @@ public class AddClient extends Command {
     private final IdentificationCard identificationCard;
     private final TravelPoints travelPoints;
 
-    public AddClient(ClientId clientId, Name name,
-                     PhoneNumber phoneNumber, PassportNumber passportNumber,
+    public AddClient(
+            CircuitId circuitId, ClientId clientId, Name name, PhoneNumber phoneNumber, PassportNumber passportNumber,
                      IdentificationCard identificationCard, TravelPoints travelPoints) {
+        this.circuitId = circuitId;
         this.clientId = clientId;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -25,6 +27,10 @@ public class AddClient extends Command {
 
     public ClientId getClientId() {
         return clientId;
+    }
+
+    public CircuitId getCircuitId() {
+        return circuitId;
     }
 
     public Name getName() {
