@@ -11,15 +11,21 @@ public class AddTouristGuide extends Command {
     private final TouristGuideId touristGuideId;
     private final Name name;
     private final PhoneNumber phoneNumber;
+    private final YearsOfExperience yearsOfExperience;
     private final Set<DestinationExperience> destinationsExperience;
 
-    public AddTouristGuide( CircuitId circuitId, TouristGuideId touristGuideId, Name name, PhoneNumber phoneNumber,
-            Set<DestinationExperience> destinationsExperience) {
+    public AddTouristGuide(CircuitId circuitId, TouristGuideId touristGuideId, Name name, PhoneNumber phoneNumber,
+                           Set<DestinationExperience> destinationsExperience, YearsOfExperience yearsOfExperience) {
         this.circuitId = circuitId;
         this.touristGuideId = touristGuideId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.destinationsExperience = destinationsExperience;
+        this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public YearsOfExperience getYearsOfExperience() {
+        return yearsOfExperience;
     }
 
     public CircuitId getCircuitId() {

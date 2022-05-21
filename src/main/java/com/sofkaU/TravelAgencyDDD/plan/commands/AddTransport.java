@@ -21,6 +21,10 @@ public class AddTransport extends Command {
         return planId;
     }
 
+    public TransportId getTransportId() {
+        return transportId;
+    }
+
     public TransportType getTransportType() {
         return transportType;
     }
