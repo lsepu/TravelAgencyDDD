@@ -5,10 +5,14 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.sofkaU.TravelAgencyDDD.circuit.Destination;
-import com.sofkaU.TravelAgencyDDD.circuit.commands.AddClient;
 import com.sofkaU.TravelAgencyDDD.circuit.events.CircuitCreated;
 import com.sofkaU.TravelAgencyDDD.circuit.events.ClientAdded;
 import com.sofkaU.TravelAgencyDDD.circuit.values.*;
+import com.sofkaU.TravelAgencyDDD.plan.Activity;
+import com.sofkaU.TravelAgencyDDD.plan.commands.AddActivity;
+import com.sofkaU.TravelAgencyDDD.plan.events.ActivityAdded;
+import com.sofkaU.TravelAgencyDDD.plan.events.PlanCreated;
+import com.sofkaU.TravelAgencyDDD.plan.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,34 +24,35 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class AddClientUseCaseTest {
+class AddActivityUseCaseTest {
+
     private final String ROOT_ID = "XXXX";
 
     @InjectMocks
-    private AddClientUseCase useCase;
+    private AddActivityUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    void addClient(){
+    void addActivity(){
 
-        var command = new AddClient(
-                CircuitId.of(ROOT_ID),
-                ClientId.of("YYYYY"),
-                new Name("Juan"),
-                new PhoneNumber("3046534527"),
-                new PassportNumber("WGS8749XC"),
-                new IdentificationCard("4687389732"),
-                new TravelPoints(0)
+        var command = new AddActivity(
+                PlanId.of(ROOT_ID),
+                ActivityId.of("YYYY"),
+                new Time("13:50 p.m"),
+                new Address("Street 123"),
+                new Duration(2.5, "hours")
                 );
 
-        var useCase = new AddClientUseCase();
+        var useCase = new AddActivityUseCase();
         Mockito.when(repository.getEventsBy(ROOT_ID)).thenReturn(history());
         useCase.addRepository(repository);
 
@@ -56,38 +61,32 @@ class AddClientUseCaseTest {
                 .getInstance()
                 .setIdentifyExecutor(ROOT_ID)
                 .syncExecutor(useCase, new RequestCommand<>(command))
-                .orElseThrow(()->new IllegalArgumentException("Something went wrong while adding the client"))
+                .orElseThrow(()->new IllegalArgumentException("Something went wrong while adding the activity"))
                 .getDomainEvents();
 
         //Assert
-        var event = (ClientAdded)events.get(0);
-        Assertions.assertEquals(command.getName().value(), event.getName().value());
-        Assertions.assertEquals(command.getPhoneNumber().value(), event.getPhoneNumber().value());
-        Assertions.assertEquals(command.getPassportNumber().value(), event.getPassportNumber().value());
-        Assertions.assertEquals(command.getIdentificationCard().value(), event.getIdentificationCard().value());
-        Assertions.assertEquals(command.getTravelPoints().value(), event.getTravelPoints().value());
+        var event = (ActivityAdded)events.get(0);
+        Assertions.assertEquals(command.getDuration().value(), event.getDuration().value());
+        Assertions.assertEquals(command.getTime().value(), event.getTime().value());
+        Assertions.assertEquals(command.getAddress().value(), event.getAddress().value());
         Mockito.verify(repository).getEventsBy(ROOT_ID);
 
 
     }
 
     private List<DomainEvent> history(){
-        DestinationId destinationId = DestinationId.of("YYYYY");
-        Destination destination = new Destination(
-                destinationId,
-                new Hotel("Hilton","Street 123"),
-                new Weather(Weather.WeatherTypes.COLD),
-                new City("Bogota"),
-                new Country("Colombia")
-        );
 
-        Date beginningDate = parseDate("2022-09-14");
-        Date endDate = parseDate("20122-09-20");
-        CircuitDates circuitDates = new CircuitDates(beginningDate, endDate);
+        Set<Activity> activities = new HashSet<>();
+        ActivityId activityId = ActivityId.of("YYYYY");
+        Activity activity = new Activity(activityId,
+                new Time("15:30 p.m"),
+                new Address("Street 123"),
+                new Duration(2.5, "hours"));
 
-        Price price = new Price(225650.0);
+        activities.add(activity);
+        PlanDate planDate = new PlanDate(parseDate("2022-09-14"));
 
-        var event = new CircuitCreated(destination, circuitDates, price);
+        var event = new PlanCreated(activities, planDate);
         return List.of(event);
     }
 
@@ -98,7 +97,5 @@ class AddClientUseCaseTest {
             return null;
         }
     }
-
-
 
 }
