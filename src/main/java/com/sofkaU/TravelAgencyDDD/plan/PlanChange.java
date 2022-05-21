@@ -3,15 +3,17 @@ package com.sofkaU.TravelAgencyDDD.plan;
 import co.com.sofka.domain.generic.EventChange;
 import com.sofkaU.TravelAgencyDDD.plan.events.*;
 
+import java.util.HashSet;
+
 public class PlanChange extends EventChange {
 
     public PlanChange(Plan plan){
 
         apply((PlanCreated event) -> {
-            plan.meals = event.getMeals();
             plan.activities = event.getActivities();
-            plan.transports = event.getTransports();
             plan.planDate = event.getPlanDate();
+            plan.transports = new HashSet<>();
+            plan.meals = new HashSet<>();
         });
 
         apply((ActivityAdded event) -> {

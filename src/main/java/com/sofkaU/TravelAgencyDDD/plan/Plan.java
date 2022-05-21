@@ -14,13 +14,13 @@ public class Plan extends AggregateEvent<PlanId> {
 
     protected Set<Meal> meals;
     protected Set<Activity> activities;
-    protected Set<Transport> transports;
     protected PlanDate planDate;
+    protected Set<Transport> transports;
 
 
-    public Plan(PlanId entityId, Set<Meal> meals, Set<Activity> activities, Set<Transport> transports, PlanDate planDate) {
+    public Plan(PlanId entityId, Set<Activity> activities, PlanDate planDate) {
         super(entityId);
-        appendChange(new PlanCreated(meals, activities, transports, planDate));
+        appendChange(new PlanCreated(activities, planDate));
         subscribe(new PlanChange(this));
     }
 

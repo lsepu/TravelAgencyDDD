@@ -4,12 +4,12 @@ import co.com.sofka.domain.generic.Command;
 import com.sofkaU.TravelAgencyDDD.circuit.values.DestinationExperience;
 import com.sofkaU.TravelAgencyDDD.circuit.values.TouristGuideId;
 
-public class AddTouristGuideExperience extends Command {
+public class AddTouristGuideDestinationExperience extends Command {
 
     private final TouristGuideId touristGuideId;
     private final DestinationExperience destinationExperience;
 
-    public AddTouristGuideExperience(TouristGuideId touristGuideId, DestinationExperience destinationExperience) {
+    public AddTouristGuideDestinationExperience(TouristGuideId touristGuideId, DestinationExperience destinationExperience) {
         this.touristGuideId = touristGuideId;
         this.destinationExperience = destinationExperience;
     }

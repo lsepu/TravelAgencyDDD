@@ -12,16 +12,12 @@ import java.util.Set;
 public class CreatePlan extends Command {
 
     private final PlanId planId;
-    private final Set<Meal> meals;
     private final Set<Activity> activities;
-    private final Set<Transport> transports;
     private final PlanDate planDate;
 
-    public CreatePlan(PlanId planId, Set<Meal> meals, Set<Activity> activities, Set<Transport> transports, PlanDate planDate) {
+    public CreatePlan(PlanId planId, Set<Activity> activities, PlanDate planDate) {
         this.planId = planId;
-        this.meals = meals;
         this.activities = activities;
-        this.transports = transports;
         this.planDate = planDate;
     }
 
@@ -29,16 +25,8 @@ public class CreatePlan extends Command {
         return planId;
     }
 
-    public Set<Meal> getMeals() {
-        return meals;
-    }
-
     public Set<Activity> getActivities() {
         return activities;
-    }
-
-    public Set<Transport> getTransports() {
-        return transports;
     }
 
     public PlanDate getPlanDate() {
