@@ -19,7 +19,7 @@ public class NotifyMarketingAreaUseCase extends UseCase<TriggeredEvent<CircuitCr
                 this.retrieveEvents()
         );
 
-       circuit.notifyMarketinArea("A new circuit has been created");
+       circuit.notifyMarketingArea("A new circuit has been created");
 
         emit().onResponse(new ResponseEvents(circuit.getUncommittedChanges()));
 

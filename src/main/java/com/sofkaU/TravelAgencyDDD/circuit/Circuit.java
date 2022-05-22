@@ -95,7 +95,7 @@ public class Circuit extends AggregateEvent<CircuitId> {
         appendChange(new TouristGuideAdded(touristGuideId, name, phoneNumber, destinationsExperience, yearsOfExperience));
     }
 
-    public void notifyMarketinArea(String message){
+    public void notifyMarketingArea(String message){
         Objects.requireNonNull(message);
 
         appendChange(new MarketingAreaNotified(message));

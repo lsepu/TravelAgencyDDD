@@ -101,6 +101,12 @@ public class Plan extends AggregateEvent<PlanId> {
         appendChange(new TransportTypeChanged(transportId, transportType));
     }
 
+    public void notifyItinerary(String notification){
+        Objects.requireNonNull(notification);
+
+        appendChange(new ItineraryNotification(notification));
+    }
+
     protected Optional<Activity> getActivityById(ActivityId entityId){
         return activities
                 .stream()
