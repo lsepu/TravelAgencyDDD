@@ -73,7 +73,7 @@ class AddTransportUseCaseTest {
         Set<Activity> activities = new HashSet<>();
         ActivityId activityId = ActivityId.of("YYYYY");
         Activity activity = new Activity(activityId,
-                new Time("15:30 p.m"),
+                new Time("15:30"),
                 new Address("Street 123"),
                 new Duration(2.5, "hours"));
 

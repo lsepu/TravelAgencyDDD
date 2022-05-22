@@ -49,7 +49,7 @@ public class PlanChange extends EventChange {
         apply((MealOptionChanged event) -> {
             var meal = plan.getMealById(event.getMealId())
                     .orElseThrow(() -> new IllegalArgumentException("The meal was not found"));
-            meal.changeMealOption(event.getOption());
+            meal.changeMealOption(event.getMealOption());
         });
 
         apply((MealAdded event) -> {
@@ -58,7 +58,7 @@ public class PlanChange extends EventChange {
 
         apply((TransportTypeChanged event) -> {
             var transport = plan.getTransportById(event.getTransportId())
-                    .orElseThrow(() -> new IllegalArgumentException("The trasnport was not found"));
+                    .orElseThrow(() -> new IllegalArgumentException("The transport was not found"));
             transport.changeTransportType(event.getTransportType());
         });
 

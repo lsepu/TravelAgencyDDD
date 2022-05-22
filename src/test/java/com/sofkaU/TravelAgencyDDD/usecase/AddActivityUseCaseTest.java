@@ -47,7 +47,7 @@ class AddActivityUseCaseTest {
         var command = new AddActivity(
                 PlanId.of(ROOT_ID),
                 ActivityId.of("YYYY"),
-                new Time("13:50 p.m"),
+                new Time("13:50"),
                 new Address("Street 123"),
                 new Duration(2.5, "hours")
                 );
@@ -79,7 +79,7 @@ class AddActivityUseCaseTest {
         Set<Activity> activities = new HashSet<>();
         ActivityId activityId = ActivityId.of("YYYYY");
         Activity activity = new Activity(activityId,
-                new Time("15:30 p.m"),
+                new Time("15:30"),
                 new Address("Street 123"),
                 new Duration(2.5, "hours"));
 

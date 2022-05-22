@@ -7,19 +7,19 @@ import com.sofkaU.TravelAgencyDDD.plan.values.MealOption;
 public class MealOptionChanged extends DomainEvent {
 
     private final MealId mealId;
-    private final MealOption option;
+    private final MealOption mealOption;
 
-    public MealOptionChanged(MealId mealId, MealOption option) {
+    public MealOptionChanged(MealId mealId, MealOption mealOption) {
         super("com.sofkaU.TravelAgencyDDD.plan.mealoptionchanged");
         this.mealId = mealId;
-        this.option = option;
+        this.mealOption = mealOption;
     }
 
     public MealId getMealId() {
         return mealId;
     }
 
-    public MealOption getOption() {
-        return option;
+    public MealOption getMealOption() {
+        return mealOption;
     }
 }
