@@ -1,26 +1,28 @@
 package com.sofkaU.TravelAgencyDDD.plan.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.sofkaU.TravelAgencyDDD.plan.values.ActivityId;
-import com.sofkaU.TravelAgencyDDD.plan.values.Address;
-import com.sofkaU.TravelAgencyDDD.plan.values.Duration;
-import com.sofkaU.TravelAgencyDDD.plan.values.Time;
-
+import com.sofkaU.TravelAgencyDDD.plan.values.*;
 
 
 public class ActivityAdded extends DomainEvent {
 
     private final ActivityId activityId;
+    private final ActivityName activityName;
     private final Time time;
     private final Address address;
     private final Duration duration;
 
-    public ActivityAdded(ActivityId activityId, Time time, Address address, Duration duration) {
+    public ActivityAdded(ActivityId activityId, ActivityName activityName, Time time, Address address, Duration duration) {
         super("com.sofkaU.TravelAgencyDDD.plan.activityadded");
         this.activityId = activityId;
+        this.activityName = activityName;
         this.time = time;
         this.address = address;
         this.duration = duration;
+    }
+
+    public ActivityName getActivityName() {
+        return activityName;
     }
 
     public ActivityId getActivityId() {

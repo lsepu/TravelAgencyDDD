@@ -45,8 +45,7 @@ public class CircuitChange extends EventChange {
         });
 
         apply((TouristGuideAdded event) -> {
-            circuit.touristGuide = new TouristGuide(event.getTouristGuideId(), event.getYearsOfExperience(), event.getName(),
-                    event.getPhoneNumber(), event.getDestinationsExperience());
+            circuit.touristGuide = new TouristGuide(event.getTouristGuideId(), event.getYearsOfExperience(), event.getName(), event.getDestinationsExperience());
         });
 
     }

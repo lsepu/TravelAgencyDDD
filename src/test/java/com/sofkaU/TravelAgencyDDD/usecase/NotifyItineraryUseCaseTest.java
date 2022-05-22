@@ -63,6 +63,7 @@ class NotifyItineraryUseCaseTest {
         Set<Activity> activities = new HashSet<>();
         ActivityId activityId = ActivityId.of("YYYYY");
         Activity activity = new Activity(activityId,
+                new ActivityName("Museum visit"),
                 new Time("15:30"),
                 new Address("Street 123"),
                 new Duration(2.5, "hours"));

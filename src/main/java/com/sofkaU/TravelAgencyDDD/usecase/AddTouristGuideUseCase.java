@@ -17,8 +17,8 @@ public class AddTouristGuideUseCase extends UseCase<RequestCommand<AddTouristGui
                 repository().getEventsBy(command.getCircuitId().value())
         );
 
-        circuit.addTouristGuide(command.getTouristGuideId(),command.getName(),command.getPhoneNumber(),
-                command.getDestinationsExperience(),command.getYearsOfExperience());
+        circuit.addTouristGuide(command.getTouristGuideId(), command.getName(),
+                command.getDestinationsExperience(), command.getYearsOfExperience());
 
         emit().onResponse(new ResponseEvents(circuit.getUncommittedChanges()));
 

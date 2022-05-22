@@ -49,7 +49,6 @@ class AddTouristGuideUseCaseTest {
 
         var command = new AddTouristGuide(CircuitId.of(ROOT_ID), TouristGuideId.of("YYYY"),
                 new Name("Juan"),
-                new PhoneNumber("3046578930"),
                 experiences,
                 new YearsOfExperience(4)
                 );
@@ -69,7 +68,6 @@ class AddTouristGuideUseCaseTest {
         //Assert
         var event = (TouristGuideAdded)events.get(0);
         Assertions.assertEquals(command.getName().value(), event.getName().value());
-        Assertions.assertEquals(command.getPhoneNumber().value(), event.getPhoneNumber().value());
         Assertions.assertEquals(command.getYearsOfExperience().value(), event.getYearsOfExperience().value());
         Assertions.assertEquals(command.getDestinationsExperience(), event.getDestinationsExperience());
         Mockito.verify(repository).getEventsBy(ROOT_ID);

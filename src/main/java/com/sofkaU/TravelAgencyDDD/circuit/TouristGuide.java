@@ -10,14 +10,12 @@ public class TouristGuide extends Entity<TouristGuideId> {
 
     private YearsOfExperience yearsOfExperience;
     private Name name;
-    private PhoneNumber phoneNumber;
     private Set<DestinationExperience> destinationsExperience;
 
-    public TouristGuide(TouristGuideId entityId, YearsOfExperience yearsOfExperience, Name name, PhoneNumber phoneNumber, Set<DestinationExperience> destinationsExperience) {
+    public TouristGuide(TouristGuideId entityId, YearsOfExperience yearsOfExperience, Name name, Set<DestinationExperience> destinationsExperience) {
         super(entityId);
         this.yearsOfExperience = yearsOfExperience;
         this.name = name;
-        this.phoneNumber = phoneNumber;
         this.destinationsExperience = destinationsExperience;
     }
 
@@ -35,10 +33,6 @@ public class TouristGuide extends Entity<TouristGuideId> {
 
     public Name Name() {
         return name;
-    }
-
-    public PhoneNumber PhoneNumber() {
-        return phoneNumber;
     }
 
     public Set<DestinationExperience> DestinationsExperience() {

@@ -37,12 +37,13 @@ public class Plan extends AggregateEvent<PlanId> {
 
     //behaviours
 
-    public void addActivity(ActivityId activityId, Time time, Address address, Duration duration){
+    public void addActivity(ActivityId activityId, ActivityName activityName, Time time, Address address, Duration duration){
         Objects.requireNonNull(activityId);
+        Objects.requireNonNull(activityName);
         Objects.requireNonNull(address);
         Objects.requireNonNull(duration);
 
-        appendChange(new ActivityAdded(activityId, time, address, duration)).apply();
+        appendChange(new ActivityAdded(activityId, activityName, time, address, duration)).apply();
     }
 
     public void addMealDessert(MealId mealId){

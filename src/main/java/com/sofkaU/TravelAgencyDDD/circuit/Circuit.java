@@ -85,14 +85,13 @@ public class Circuit extends AggregateEvent<CircuitId> {
         appendChange(new TouristGuideDestinationExperienceAdded(touristGuideId, destinationExperience)).apply();
     }
 
-    public void addTouristGuide(TouristGuideId touristGuideId, Name name, PhoneNumber phoneNumber, Set<DestinationExperience> destinationsExperience,
+    public void addTouristGuide(TouristGuideId touristGuideId, Name name, Set<DestinationExperience> destinationsExperience,
                                 YearsOfExperience yearsOfExperience){
         Objects.requireNonNull(touristGuideId);
         Objects.requireNonNull(name);
-        Objects.requireNonNull(phoneNumber);
         Objects.requireNonNull(destinationsExperience);
 
-        appendChange(new TouristGuideAdded(touristGuideId, name, phoneNumber, destinationsExperience, yearsOfExperience));
+        appendChange(new TouristGuideAdded(touristGuideId, name, destinationsExperience, yearsOfExperience));
     }
 
     public void notifyMarketingArea(String message){

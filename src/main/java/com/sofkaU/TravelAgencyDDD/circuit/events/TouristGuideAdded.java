@@ -9,16 +9,14 @@ public class TouristGuideAdded extends DomainEvent {
 
     private final TouristGuideId touristGuideId;
     private final Name name;
-    private final PhoneNumber phoneNumber;
     private final Set<DestinationExperience> destinationsExperience;
     private final YearsOfExperience yearsOfExperience;
 
-    public TouristGuideAdded(TouristGuideId touristGuideId, Name name, PhoneNumber phoneNumber, Set<DestinationExperience> destinationsExperience,
+    public TouristGuideAdded(TouristGuideId touristGuideId, Name name, Set<DestinationExperience> destinationsExperience,
                              YearsOfExperience yearsOfExperience) {
         super("com.sofkaU.TravelAgencyDDD.circuit.touristguideadded");
         this.touristGuideId = touristGuideId;
         this.name = name;
-        this.phoneNumber = phoneNumber;
         this.destinationsExperience = destinationsExperience;
         this.yearsOfExperience = yearsOfExperience;
     }
@@ -36,9 +34,6 @@ public class TouristGuideAdded extends DomainEvent {
         return name;
     }
 
-    public PhoneNumber getPhoneNumber() {
-        return phoneNumber;
-    }
 
     public Set<DestinationExperience> getDestinationsExperience() {
         return destinationsExperience;

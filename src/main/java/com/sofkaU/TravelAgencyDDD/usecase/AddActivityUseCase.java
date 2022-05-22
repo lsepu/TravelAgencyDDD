@@ -18,7 +18,7 @@ public class AddActivityUseCase extends UseCase<RequestCommand<AddActivity>, Res
                 repository().getEventsBy(command.getPlanId().value())
         );
 
-        plan.addActivity(command.getActivityId(),command.getTime(),command.getAddress(),command.getDuration());
+        plan.addActivity(command.getActivityId(), command.getActivityName(), command.getTime(),command.getAddress(),command.getDuration());
 
         emit().onResponse(new ResponseEvents(plan.getUncommittedChanges()));
 

@@ -17,7 +17,7 @@ public class PlanChange extends EventChange {
         });
 
         apply((ActivityAdded event) -> {
-            plan.activities.add(new Activity(event.getActivityId(), event.getTime(), event.getAddress(), event.getDuration()));
+            plan.activities.add(new Activity(event.getActivityId(), event.getActivityName(), event.getTime(), event.getAddress(), event.getDuration()));
         });
 
         apply((MealDessertAdded event) -> {
